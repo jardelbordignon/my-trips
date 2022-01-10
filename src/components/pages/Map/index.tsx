@@ -20,7 +20,7 @@ interface IMap {
 const Map = ({ places }: IMap) => {
   return (
     <>
-      <FloatingLink href="#/">
+      <FloatingLink href="/about">
         <a>
           <InfoIcon />
         </a>

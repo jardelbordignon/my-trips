@@ -50,11 +50,21 @@ export default createGlobalStyle`
   }
 
   a {
-    color: var(--highlight);
+    color: var(--white);
     text-decoration: none;
     &:hover {
       transition: opacity 0.2s;
       opacity: 0.8;
+      color: var(--highlight);
     }
+  }
+
+  h1, h2, h3 {
+    font-size: var(--large);
+    margin-bottom: var(--large);
+  }
+  h4, h5, h6 {
+    font-size: var(--medium);
+    margin-bottom: var(--medium);
   }
 `

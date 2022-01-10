@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // detecta automaticamente a versão do react ao testar o cod
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "@typescript-eslint"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error", // react-hooks valida o uso dos hooks
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off", // não avisar da falta de prop-types
+    "react/react-in-jsx-scope": "off", // react 17 não precisa importar sempre
+    "@typescript-eslint/explicit-module-boundary-types": "off", // não precisa tipar quando a tipagem estiver inferida
+    "@typescript-eslint/explicit-function-return-type": "off"
+  }
+}

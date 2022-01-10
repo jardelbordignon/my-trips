@@ -7,7 +7,7 @@ describe('Home', () => {
     render(<Home />)
 
     expect(
-      screen.getByRole('heading', { name: /React Avançado/i })
+      screen.getByRole('heading', { name: /My Trips/i })
     ).toBeInTheDocument()
   })
 

@@ -14,16 +14,4 @@ export const Wrapper = styled.main`
   padding: 0 15px;
 `
 
-export const Logo = styled.img`
-  width: min(250rem, 100%);
-`
-
 export const Title = styled.h2``
-
-export const Description = styled.h3`
-  font-weight: 400;
-`
-
-export const Illustration = styled.img`
-  width: min(300rem, 100%);
-`

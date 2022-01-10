@@ -2,17 +2,6 @@ import * as S from './styles'
 
 export const Home = () => (
   <S.Wrapper>
-    <S.Logo
-      src="/img/logo.svg"
-      alt="Imagem de um átomo e o texto React Avançado escrito ao lado."
-    />
-    <S.Title>React Avançado</S.Title>
-    <S.Description>
-      TypeScript, ReactJs, NextJS and Styled Components
-    </S.Description>
-    <S.Illustration
-      src="/img/hero-illustration.svg"
-      alt="Um desenvolvedor de frente para uma tela com código."
-    />
+    <S.Title>My Trips</S.Title>
   </S.Wrapper>
 )

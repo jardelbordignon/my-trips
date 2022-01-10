@@ -26,40 +26,13 @@ exports[`Home deve renderizar o heading conforme o snapshot 1`] = `
   padding: 0 15px;
 }
 
-.c1 {
-  width: min(250rem,100%);
-}
-
-.c2 {
-  font-weight: 400;
-}
-
-.c3 {
-  width: min(300rem,100%);
-}
-
 <main
   class="c0"
 >
-  <img
-    alt="Imagem de um átomo e o texto React Avançado escrito ao lado."
-    class="c1"
-    src="/img/logo.svg"
-  />
   <h2
     class=""
   >
-    React Avançado
+    My Trips
   </h2>
-  <h3
-    class="c2"
-  >
-    TypeScript, ReactJs, NextJS and Styled Components
-  </h3>
-  <img
-    alt="Um desenvolvedor de frente para uma tela com código."
-    class="c3"
-    src="/img/hero-illustration.svg"
-  />
 </main>
 `

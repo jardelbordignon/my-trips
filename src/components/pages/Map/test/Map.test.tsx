@@ -2,6 +2,14 @@ import { render, screen } from '@testing-library/react'
 
 import Map from '..'
 
+jest.mock('@/components/utils/FloatingLink', () => {
+  return {
+    FloatingLink() {
+      return <a href="/profile">My Account</a>
+    }
+  }
+})
+
 describe('Map', () => {
   it('deve poder renderizar o leaflet', () => {
     render(<Map places={[]} />)

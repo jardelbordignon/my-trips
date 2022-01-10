@@ -1,5 +1,7 @@
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 
+import { FloatingLink } from '@/components/utils/FloatingLink'
+
 type PlaceType = {
   id: string
   name: string
@@ -21,6 +23,10 @@ const Map = ({ places }: IMap) => {
       zoom={2.5}
       style={{ height: '100%', width: '100%' }}
     >
+      <FloatingLink href="#/">
+        <a>Teste</a>
+      </FloatingLink>
+
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

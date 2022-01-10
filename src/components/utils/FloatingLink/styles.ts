@@ -25,6 +25,8 @@ export const Wrapper = styled.div<IWrapper>`
       : null};
   color: var(--white);
   cursor: pointer;
+  width: 24rem;
+  height: 24rem;
 
   &:hover {
     svg: {

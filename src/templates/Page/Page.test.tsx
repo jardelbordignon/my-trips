@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import { AboutTemplate } from '.'
+import { PageTemplate } from '.'
 
 jest.mock('@/components/utils/FloatingLink', () => {
   return {
@@ -10,9 +10,9 @@ jest.mock('@/components/utils/FloatingLink', () => {
   }
 })
 
-describe('About Template', () => {
+describe('Page Template', () => {
   it('deve poder renderizar o template', () => {
-    render(<AboutTemplate />)
+    render(<PageTemplate heading="My Trips" body="body" />)
 
     const heading = screen.getByRole('heading', { name: /my trips/i })
 

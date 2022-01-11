@@ -1,8 +1,12 @@
 import type { NextPage } from 'next'
 import dynamic from 'next/dynamic'
 
-// import { Map } from '@/components/pages/Map'
-const Map = dynamic(() => import('@/components/pages/Map'), { ssr: false })
+import { IMapTemplate } from '@/templates/Map'
+
+const MapTemplate = dynamic<IMapTemplate>(
+  () => import('@/templates/Map').then((mod) => mod.MapTemplate),
+  { ssr: false, loading: () => <span>...</span> }
+)
 
 const HomePage: NextPage = () => {
   const place1 = {
@@ -25,7 +29,7 @@ const HomePage: NextPage = () => {
     }
   }
 
-  return <Map places={[place1, place2]} />
+  return <MapTemplate places={[place1, place2]} />
 }
 
 export default HomePage

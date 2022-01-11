@@ -2,7 +2,7 @@ import { FloatingLink } from '@/components/utils/FloatingLink'
 import { XIcon } from '@/assets/iconsFile'
 import * as S from './styles'
 
-export const About = () => {
+export const AboutTemplate = () => {
   return (
     <S.Wrapper>
       <FloatingLink href="/">

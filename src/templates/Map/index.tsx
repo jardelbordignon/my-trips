@@ -13,11 +13,11 @@ type PlaceType = {
   }
 }
 
-interface IMap {
+export interface IMapTemplate {
   places?: PlaceType[]
 }
 
-const Map = ({ places }: IMap) => {
+export const MapTemplate = ({ places }: IMapTemplate) => {
   return (
     <>
       <FloatingLink href="/about">
@@ -48,5 +48,3 @@ const Map = ({ places }: IMap) => {
     </>
   )
 }
-
-export default Map

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 
-import { About } from '@/components/pages/About'
+import { AboutTemplate } from '@/templates/About'
 
-const AboutPage: NextPage = () => <About />
+const About: NextPage = () => <AboutTemplate />
 
-export default AboutPage
+export default About

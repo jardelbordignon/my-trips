@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import Map from '..'
+import { MapTemplate } from '.'
 
 jest.mock('@/components/utils/FloatingLink', () => {
   return {
@@ -10,9 +10,9 @@ jest.mock('@/components/utils/FloatingLink', () => {
   }
 })
 
-describe('Map', () => {
+describe('Map Template', () => {
   it('deve poder renderizar o leaflet', () => {
-    render(<Map places={[]} />)
+    render(<MapTemplate places={[]} />)
 
     //screen.logTestingPlaygroundURL()
     const openstreetmapPNG = screen.getByRole('presentation')
@@ -40,7 +40,7 @@ describe('Map', () => {
       }
     }
 
-    render(<Map places={[place1, place2]} />)
+    render(<MapTemplate places={[place1, place2]} />)
 
     expect(screen.getByTitle(/carazinho/i)).toBeInTheDocument()
     expect(screen.getByTitle(/Balneário Camboriú/i)).toBeInTheDocument()

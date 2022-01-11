@@ -20,3 +20,4 @@ Sobre as questões:
 
 Se tudo deu certo um arquivo src/graphql/generated/graphql.ts foi gerado
 
+Automatizando a inserção da linha para desabilitar o lint no arquivo de tipagens

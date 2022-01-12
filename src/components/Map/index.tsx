@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 
 type PlaceType = {
@@ -15,6 +16,8 @@ export interface IMap {
 }
 
 export const Map = ({ places }: IMap) => {
+  const router = useRouter()
+
   return (
     <MapContainer
       center={[-28.2751468, -52.8312789]}
@@ -27,11 +30,14 @@ export const Map = ({ places }: IMap) => {
       />
 
       {places &&
-        places.map(({ id, name, location }) => (
+        places.map(({ id, slug, name, location }) => (
           <Marker
             key={id}
             position={[location.latitude, location.longitude]}
             title={name}
+            eventHandlers={{
+              click: () => router.push(`/place/${slug}`)
+            }}
           />
         ))}
     </MapContainer>

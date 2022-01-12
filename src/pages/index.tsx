@@ -1,35 +1,19 @@
-import type { NextPage } from 'next'
-import dynamic from 'next/dynamic'
+import type { GetStaticProps, NextPage } from 'next'
 
-import { IMapTemplate } from '@/templates/Map'
+import { IMap } from '@/components/Map'
+import { HomeTemplate } from '@/templates/Home'
+import { GET_PLACES, client } from '@/graphql'
+import { GetPlacesQuery } from '@/graphql/types/endpointGeneratedTypes'
 
-const MapTemplate = dynamic<IMapTemplate>(
-  () => import('@/templates/Map').then((mod) => mod.MapTemplate),
-  { ssr: false, loading: () => <span>...</span> }
-)
+const Home: NextPage<IMap> = ({ places }) => <HomeTemplate places={places} />
 
-const HomePage: NextPage = () => {
-  const place1 = {
-    id: '1',
-    name: 'Carazinho',
-    slug: 'carazinho',
-    location: {
-      lat: -28.2751468,
-      lng: -52.8312789
-    }
+export default Home
+
+// getStaticProps -> sever para buscar dados da página e disponibilizar nas props, build time
+export const getStaticProps: GetStaticProps = async () => {
+  const { places } = await client.request<GetPlacesQuery>(GET_PLACES)
+
+  return {
+    props: { places }
   }
-
-  const place2 = {
-    id: '2',
-    name: 'Balneário Camboriú',
-    slug: 'balneario-camboriu',
-    location: {
-      lat: -27.0057044,
-      lng: -48.6870244
-    }
-  }
-
-  return <MapTemplate places={[place1, place2]} />
 }
-
-export default HomePage

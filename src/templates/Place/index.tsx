@@ -1,3 +1,6 @@
+import { useRouter } from 'next/router'
+import Image from 'next/image'
+
 import { XIcon } from '@/assets/iconsFile'
 import { FloatingLink } from '@/components/utils/FloatingLink'
 
@@ -24,24 +27,39 @@ export interface IPlaceTemplate {
   }
 }
 
-export const PlaceTemplate = ({ place }: IPlaceTemplate) => (
-  <S.Wrapper>
-    <S.Container>
-      <FloatingLink href="/">
-        <a title="Go back to map">
-          <XIcon />
-        </a>
-      </FloatingLink>
-      <S.Heading>{place.name}</S.Heading>
+export const PlaceTemplate = ({ place }: IPlaceTemplate) => {
+  const router = useRouter()
 
-      {place.description && (
-        <S.Body dangerouslySetInnerHTML={{ __html: place.description.html }} />
-      )}
-      <S.Gallery>
-        {place.gallery.map(({ url, ...rest }) => (
-          <img key={url} src={url} alt={place.name} {...rest} />
-        ))}
-      </S.Gallery>
-    </S.Container>
-  </S.Wrapper>
-)
+  if (router.isFallback) return null
+
+  return (
+    <S.Wrapper>
+      <S.Container>
+        <FloatingLink href="/">
+          <a title="Go back to map">
+            <XIcon />
+          </a>
+        </FloatingLink>
+        <S.Heading>{place.name}</S.Heading>
+
+        {place.description && (
+          <S.Body
+            dangerouslySetInnerHTML={{ __html: place.description.html }}
+          />
+        )}
+        <S.Gallery>
+          {place.gallery.map(({ url }) => (
+            <Image
+              key={url}
+              src={url}
+              alt={place.name}
+              width={1000}
+              height={600}
+              quality={75}
+            />
+          ))}
+        </S.Gallery>
+      </S.Container>
+    </S.Wrapper>
+  )
+}

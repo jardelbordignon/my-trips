@@ -25,8 +25,8 @@ describe('Map Template', () => {
       name: 'Carazinho',
       slug: 'carazinho',
       location: {
-        lat: -28.2751468,
-        lng: -52.8312789
+        latitude: -28.2751468,
+        longitude: -52.8312789
       }
     }
 
@@ -35,8 +35,8 @@ describe('Map Template', () => {
       name: 'Balneário Camboriú',
       slug: 'balneario-camboriu',
       location: {
-        lat: -27.0057044,
-        lng: -48.6870244
+        latitude: -27.0057044,
+        longitude: -48.6870244
       }
     }
 

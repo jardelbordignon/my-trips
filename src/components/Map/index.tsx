@@ -5,8 +5,8 @@ type PlaceType = {
   name: string
   slug: string
   location: {
-    lat: number
-    lng: number
+    latitude: number
+    longitude: number
   }
 }
 
@@ -30,7 +30,7 @@ export const Map = ({ places }: IMap) => {
         places.map(({ id, name, location }) => (
           <Marker
             key={id}
-            position={[location.lat, location.lng]}
+            position={[location.latitude, location.longitude]}
             title={name}
           />
         ))}

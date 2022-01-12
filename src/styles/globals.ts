@@ -6,7 +6,7 @@ export default createGlobalStyle`
     --background: #030518;
     --white: #eee;
 
-    --container: 1000rem;
+    --container: min(1000rem, 100vw);
     --small: 15rem;
     --medium: 30rem;
     --large: 50rem;

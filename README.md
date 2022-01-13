@@ -1,33 +1,26 @@
 <p align="center">
-   <img src="https://github.com/jardelbordignon/nextjs-ts-jest-pwa-boilerplate/blob/main/docs/print.png" width="100%"/>
+   <img src="https://github.com/jardelbordignon/my-trips/blob/main/public/img/cover.png" width="100%"/>
 </p>
 
-<h1 align="center">NextJS PWA Boilerplate</h1>
+<h1 align="center">Aprenda NextJS, GraphQL/GraphCMS e Leaflet na prática!
+</h1>
 
-# :computer: Technologies
-This project was made using the follow technologies:
+# :computer:
+O projeto foi construído usando as seguintes tecnologias:
 
 * [Next.js](https://nextjs.org)
 * [Styled-Components](https://styled-components.com)
 * [Next-PWA](https://github.com/shadowwalker/next-pwa)
+* [GraphQL](https://graphql.org/)
+* [GraphQL-Request](https://www.npmjs.com/package/graphql-request)
+* [Leaflet](https://leafletjs.com/)
+* [React-Leaflet](https://react-leaflet.js.org/)
+* [Next-SEO](https://www.npmjs.com/package/next-seo)
 * [Jest](https://jestjs.io)
 * [Testing Library](https://testing-library.com)
 * [Husky](https://github.com/typicode/husky)
 * [Lint Staged](https://github.com/okonet/lint-staged)
 
 
-# :construction_worker: How to run
-**You need to install [Node.js](https://nodejs.org/en/download/) and [Yarn](https://yarnpkg.com/) first, then:**
-
-### Install Dependencies
-```bash
-yarn install
-```
-### Run Aplication
-```bash
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-
+# :construction_worker:
+**O projeto usa o [GraphCMS](graphcms.com) como base de dados, então é necessário criar a estrutura na plataforma conforme é abordado durante as [aulas](https://www.udemy.com/course/aprenda-nextjs-na-pratica/).**

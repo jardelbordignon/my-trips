@@ -2,8 +2,7 @@
    <img src="https://github.com/jardelbordignon/my-trips/blob/main/public/img/cover.png" width="100%"/>
 </p>
 
-<h1 align="center">Aprenda NextJS, GraphQL/GraphCMS e Leaflet na prática!
-</h1>
+<h1 align="center">NextJS, GraphQL/GraphCMS e Leaflet na prática!</h1>
 
 # :computer:
 O projeto foi construído usando as seguintes tecnologias:
@@ -23,4 +22,4 @@ O projeto foi construído usando as seguintes tecnologias:
 
 
 # :construction_worker:
-**O projeto usa o [GraphCMS](graphcms.com) como base de dados, então é necessário criar a estrutura na plataforma conforme é abordado durante as [aulas](https://www.udemy.com/course/aprenda-nextjs-na-pratica/).**
+**O projeto usa o [GraphCMS](https://graphcms.com/) como base de dados, então é necessário criar a estrutura na plataforma conforme é abordado durante as [aulas](https://www.udemy.com/course/aprenda-nextjs-na-pratica/).**

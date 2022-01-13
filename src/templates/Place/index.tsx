@@ -3,6 +3,7 @@ import Image from 'next/image'
 
 import { XIcon } from '@/assets/iconsFile'
 import { FloatingLink } from '@/components/utils/FloatingLink'
+import { Seo } from './Seo'
 
 import * as S from './styles'
 
@@ -18,6 +19,7 @@ export interface IPlaceTemplate {
     }
     description?: {
       html: string
+      text: string
     }
     gallery: Array<{
       url: string
@@ -33,33 +35,36 @@ export const PlaceTemplate = ({ place }: IPlaceTemplate) => {
   if (router.isFallback) return null
 
   return (
-    <S.Wrapper>
-      <S.Container>
-        <FloatingLink href="/">
-          <a title="Go back to map">
-            <XIcon />
-          </a>
-        </FloatingLink>
-        <S.Heading>{place.name}</S.Heading>
+    <>
+      <Seo place={place} />
+      <FloatingLink href="/">
+        <a title="Go back to map">
+          <XIcon />
+        </a>
+      </FloatingLink>
+      <S.Wrapper>
+        <S.Container>
+          <S.Heading>{place.name}</S.Heading>
 
-        {place.description && (
-          <S.Body
-            dangerouslySetInnerHTML={{ __html: place.description.html }}
-          />
-        )}
-        <S.Gallery>
-          {place.gallery.map(({ url }) => (
-            <Image
-              key={url}
-              src={url}
-              alt={place.name}
-              width={1000}
-              height={600}
-              quality={75}
+          {place.description && (
+            <S.Body
+              dangerouslySetInnerHTML={{ __html: place.description.html }}
             />
-          ))}
-        </S.Gallery>
-      </S.Container>
-    </S.Wrapper>
+          )}
+          <S.Gallery>
+            {place.gallery.map(({ url }) => (
+              <Image
+                key={url}
+                src={url}
+                alt={place.name}
+                width={1000}
+                height={600}
+                quality={75}
+              />
+            ))}
+          </S.Gallery>
+        </S.Container>
+      </S.Wrapper>
+    </>
   )
 }

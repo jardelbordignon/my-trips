@@ -37,7 +37,12 @@ export const Map = ({ places }: IMap) => {
     <MapContainer
       center={[-28.2751468, -52.8312789]}
       zoom={2.5}
-      style={{ height: '100%', width: '100%' }}
+      minZoom={3}
+      maxBounds={[
+        [-180, 180],
+        [180, -180]
+      ]}
+      style={{ height: '100%', width: '100%', backgroundColor: '#75cff0' }}
     >
       <CustomTileLayer />
 

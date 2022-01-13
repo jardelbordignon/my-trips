@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router'
-import { MapContainer, TileLayer, Marker } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, MapConsumer } from 'react-leaflet'
 
 import { mapboxAccessToken } from '@/config/dotenv'
+import { useWindowDimensions } from '@/hooks/useWindowDimensions'
 
 type PlaceType = {
   id: string
@@ -32,18 +33,27 @@ const CustomTileLayer = () =>
 
 export const Map = ({ places }: IMap) => {
   const router = useRouter()
+  const { width } = useWindowDimensions()
+  const isMobile = width < 768
 
   return (
     <MapContainer
       center={[-28.2751468, -52.8312789]}
       zoom={2.5}
-      minZoom={3}
+      // minZoom={3}
       maxBounds={[
         [-180, 180],
         [180, -180]
       ]}
       style={{ height: '100%', width: '100%', backgroundColor: '#75cff0' }}
     >
+      <MapConsumer>
+        {(map) => {
+          map.setMinZoom(isMobile ? 2 : 3)
+          return null
+        }}
+      </MapConsumer>
+
       <CustomTileLayer />
 
       {places &&

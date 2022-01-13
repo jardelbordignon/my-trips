@@ -1,9 +1,9 @@
 import { GraphQLClient } from 'graphql-request'
 
-const endpoint = process.env.GRAPHQL_ENDPOINT || ''
+import { graphqlEndpoint, graphqlToken } from '@/config/dotenv'
 
-export const client = new GraphQLClient(endpoint, {
+export const client = new GraphQLClient(graphqlEndpoint, {
   headers: {
-    authorization: `Bearer ${process.env.GRAPHQL_TOKEN}`
+    authorization: `Bearer ${graphqlToken}`
   }
 })

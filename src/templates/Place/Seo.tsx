@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo'
 import { IPlaceTemplate } from '.'
 
 export const Seo = ({ place }: IPlaceTemplate) => {
-  const url = 'https://jardelbordignon-mytrips.vercel.com'
+  const url = 'https://jardelbordignon-mytrips.vercel.app/'
   const title = `${place.name} - My Trips`
   const description = place.description
     ? place.description.text

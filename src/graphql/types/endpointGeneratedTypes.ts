@@ -1868,6 +1868,7 @@ export type Place = Node & {
   updatedAt: Scalars['DateTime'];
   /** User that last updated this document */
   updatedBy?: Maybe<User>;
+  went: Scalars['Boolean'];
 };
 
 
@@ -1947,6 +1948,7 @@ export type PlaceCreateInput = {
   name: Scalars['String'];
   slug: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
+  went: Scalars['Boolean'];
 };
 
 export type PlaceCreateManyInlineInput = {
@@ -2093,6 +2095,9 @@ export type PlaceManyWhereInput = {
   /** All values that are not contained in given list. */
   updatedAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>;
   updatedBy?: InputMaybe<UserWhereInput>;
+  went?: InputMaybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  went_not?: InputMaybe<Scalars['Boolean']>;
 };
 
 export enum PlaceOrderByInput {
@@ -2107,7 +2112,9 @@ export enum PlaceOrderByInput {
   SlugAsc = 'slug_ASC',
   SlugDesc = 'slug_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
+  WentAsc = 'went_ASC',
+  WentDesc = 'went_DESC'
 }
 
 export type PlaceUpdateInput = {
@@ -2116,6 +2123,7 @@ export type PlaceUpdateInput = {
   location?: InputMaybe<LocationInput>;
   name?: InputMaybe<Scalars['String']>;
   slug?: InputMaybe<Scalars['String']>;
+  went?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type PlaceUpdateManyInlineInput = {
@@ -2138,6 +2146,7 @@ export type PlaceUpdateManyInlineInput = {
 export type PlaceUpdateManyInput = {
   description?: InputMaybe<Scalars['RichTextAST']>;
   name?: InputMaybe<Scalars['String']>;
+  went?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type PlaceUpdateManyWithNestedWhereInput = {
@@ -2304,6 +2313,9 @@ export type PlaceWhereInput = {
   /** All values that are not contained in given list. */
   updatedAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>;
   updatedBy?: InputMaybe<UserWhereInput>;
+  went?: InputMaybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  went_not?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** References Place record uniquely */
@@ -4101,11 +4113,11 @@ export type GetPlacesQueryVariables = Exact<{
 }>;
 
 
-export type GetPlacesQuery = { __typename?: 'Query', places: Array<{ __typename?: 'Place', id: string, slug: string, name: string, location: { __typename?: 'Location', latitude: number, longitude: number }, description?: { __typename?: 'RichText', html: string } | null | undefined, gallery: Array<{ __typename?: 'Asset', url: string, width?: number | null | undefined, height?: number | null | undefined }> }> };
+export type GetPlacesQuery = { __typename?: 'Query', places: Array<{ __typename?: 'Place', id: string, slug: string, name: string, went: boolean, location: { __typename?: 'Location', latitude: number, longitude: number }, description?: { __typename?: 'RichText', html: string } | null | undefined, gallery: Array<{ __typename?: 'Asset', url: string, width?: number | null | undefined, height?: number | null | undefined }> }> };
 
 export type GetPlaceBySlugQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type GetPlaceBySlugQuery = { __typename?: 'Query', place?: { __typename?: 'Place', id: string, slug: string, name: string, location: { __typename?: 'Location', latitude: number, longitude: number }, description?: { __typename?: 'RichText', html: string } | null | undefined, gallery: Array<{ __typename?: 'Asset', url: string, height?: number | null | undefined, width?: number | null | undefined }> } | null | undefined };
+export type GetPlaceBySlugQuery = { __typename?: 'Query', place?: { __typename?: 'Place', id: string, slug: string, name: string, went: boolean, location: { __typename?: 'Location', latitude: number, longitude: number }, description?: { __typename?: 'RichText', html: string, text: string } | null | undefined, gallery: Array<{ __typename?: 'Asset', url: string, height?: number | null | undefined, width?: number | null | undefined }> } | null | undefined };

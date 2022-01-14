@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, MapConsumer } from 'react-leaflet'
 
 import { mapboxAccessToken } from '@/config/dotenv'
 import { useWindowDimensions } from '@/hooks/useWindowDimensions'
+import L from 'leaflet'
 
 type PlaceType = {
   id: string
@@ -12,6 +13,8 @@ type PlaceType = {
     latitude: number
     longitude: number
   }
+  went: boolean
+  _icon: HTMLElement
 }
 
 export interface IMap {
@@ -30,6 +33,16 @@ const CustomTileLayer = () =>
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
   )
+
+const markerIcon = (color: 'blue' | 'green') =>
+  new L.Icon({
+    iconUrl: `img/marker-${color}-icon-2x.png`,
+    shadowUrl: '/img/marker-icon-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  })
 
 export const Map = ({ places }: IMap) => {
   const router = useRouter()
@@ -57,11 +70,12 @@ export const Map = ({ places }: IMap) => {
       <CustomTileLayer />
 
       {places &&
-        places.map(({ id, slug, name, location }) => (
+        places.map(({ id, slug, name, location, went }) => (
           <Marker
             key={id}
             position={[location.latitude, location.longitude]}
             title={name}
+            icon={markerIcon(went ? 'green' : 'blue')}
             eventHandlers={{
               click: () => router.push(`/place/${slug}`)
             }}
